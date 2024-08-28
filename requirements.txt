@@ -1,0 +1,9 @@
+typing
+numpy
+pandas
+matplotlib
+scipy
+six
+pillow
+opencv
+scikit-learn
