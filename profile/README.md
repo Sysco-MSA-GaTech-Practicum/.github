@@ -27,6 +27,10 @@ Other helpful conda commans:
 We will be using the [ZenHub Chrome Extension](https://chromewebstore.google.com/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd?hl=en-US) for project management. It would be good to start to familiarize yourselves with project management concepts like a [kanban board](https://www.atlassian.com/agile/kanban); here is a [list of other common terms](https://www.indeed.com/career-advice/career-development/management-terms).
 
 
+### Branch Management
+We want our branches to reflect our project organization with respect to epochs and issues. The `main` branch should be protected and should only get `stable` code. Each epoch should get it's own `stable` brach as well like `[epochname]_stable`. And then each issue should get it's own branch following the convention `[epochname]/Issue[###]-[issue_name]`. Regular issues, regular branching, and regular merges will help keep us organized (if used correctly!).
+
+
 ### Group Chat
 TBD
 
