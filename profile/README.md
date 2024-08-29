@@ -61,7 +61,7 @@ Released when all turn in their NDA.
   * what else is out there that can be used in place of GitHub:
     * GitLab
     * Bitbucket (part of Atlassian suite of products)
-* Interated Development Environment or IDE:
+* Integrated Development Environment or IDE:
   * if we're not being pretentious, IDEs are basically just fancy text editors
   * [VSCode](https://code.visualstudio.com/docs/python/python-quick-start) (most popular)
   * PyCharm
