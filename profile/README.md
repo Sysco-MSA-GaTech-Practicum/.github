@@ -32,7 +32,7 @@ We want our branches to reflect our project organization with respect to epochs 
 
 
 ### Group Chat
-TBD
+See GroupMe
 
 
 
