@@ -39,16 +39,54 @@ See GroupMe
 ## 2024 Practicum
 
 ### Data
-Released when all turn in their NDA.
+Access the Supplies on the Fly website with the following credentials:
+* site: [https://www.suppliesonthefly.com](https://www.suppliesonthefly.com)
+* username: GTech
+* password: [check your email and search for 'GTech']
 
+The 'Product Data' and 'Order History Data' are released via the 'Data Investigation' repo.
+The product images are pulled from the website and are not necessarily private; I have uploaded them conveniently for you [here](https://drive.google.com/drive/folders/1zkc_tyHYKw8WKuXCz4ZDXlJgCMKTpGUU?usp=sharing) or just use a curl command like used in this script that generated the data in the Google Drive:
+```
+#!/bin/bash
+
+product_folder_tag=$1
+revenuegroup=$2
+output_tag=$3
+
+productid_file="./datasets/product_data/$product_folder_tag/$revenuegroup.txt"
+output_folder="./datasets/product_images/$output_tag/train/$revenuegroup"
+
+productids=$(cat $productid_file)
+
+for productid in $productids; do
+    echo "file -> $output_folder/$productid.jpg"
+    curl https://images.suppliesonthefly.com/v1/product/$productid/0/2 --output $output_folder/$productid.jpg
+done
+```
 
 ### Problem Statement
-
+Many of the ‘data-science-asks' coming from the rest of the organization can be categorized under some sort of ‘Product Similarity’ problem. Of course, there are many ways to compare products, but there is still great overlap in the methodology or in the application of the comparisons. Despite the overlap and the numerous projects under ‘Product Similarity’, no single project was done to unify all these efforts together. 
 
 ### Goals
+Can a single tool be created to bridge together all the different methodologies that can be used for finding similar products, where ‘similarity’ can be defined as: 
+* Same brand and model, but different: 
+  * Color (ie blue vs red cup) 
+  * Case size (ie single item vs pack of 12) 
+  * Size (ie 10oz vs 16oz cup) 
+* Same product-use, but different brand or model 
+* Complementary but different product-use (ie container vs lid, or pan vs hot pad) 
+* Different products but used in the same kitchen types (ie deep frier and plastic trays at fast food restaurants) 
 
+Can we do this with the available data: 
+* Manufacturer (external) or internal product id (via regex) 
+* Manufacturer, brand, product name, product description data (via regex and NLP) 
+* Product images (via pretrained CV models) 
+* Order history (via unsupervised clustering or DNNs) 
+
+And can we deliver this information into some interactive tool that is easy to use? 
 
 ### Deliverables
+A web+python based interface that will take in a product id and will output a series of similar products based off different definitions of ‘similar’ (as listed above). Needs to be easy to use and easy to update. 
 
 
 ## *Good to Know* Stuff
